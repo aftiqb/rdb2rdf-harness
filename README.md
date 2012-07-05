@@ -45,11 +45,13 @@ Download the test suite:
     
 Copy the `rdb2rdf-tests` directory into `rdb2rdf-harness` directory
 
-In `run-dm.sh`, make the following changes which will generate the direct mapping into each specific test case directory
+make the following changes in `all-dm-tests.sh`
 
-    ACTUAL=rdb2rdf-tests/$TESTDIR/directGraph-d2rq.ttl
+    ./dm-test_earl.sh $TESTCASE
 
-and run the following command which generates the direct mappings using D2RQ
+where `dm-test_earl.sh` is an updated script file which generates direct mappings into each specific test case directory
+
+and run the following command which will generate the direct mappings for each test case separately using D2RQ
 
     ./all-dm-tests.sh
 
