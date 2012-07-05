@@ -38,46 +38,24 @@ The R2RML tester will run all tests in the `D001` directory. It currently cannot
 
 ### Generating earl reports
 
-Download the test suite:
+run the following command 
 
-    cd rdb2rdf-harness
-    hg clone https://dvcs.w3.org/hg/rdb2rdf-tests
-    
-Copy the `rdb2rdf-tests` directory into `rdb2rdf-harness` directory
+    ./run-all-tests.sh
 
-make the following changes in `all-dm-tests.sh`
 
-    ./dm-test_earl.sh $TESTCASE
+Download the test harness from [here](http://mccarthy.dia.fi.upm.es/rdb2rdf/tc/th/rdb2rdf-th_bin_0.0.8.zip) and unzip into `rdb2rdf-harness` directory 
 
-where `dm-test_earl.sh` is an updated script file which generates direct mappings into each specific test case directory
+in `rdb2rdf-th_bin_0.0.8` directory, make the following changes in `ts.ttl` file
 
-and run the following command which will generate the direct mappings for each test case separately using D2RQ
-
-    ./all-dm-tests.sh
-
-make the following changes in `all-r2rml-tests.sh`
-
-    ./r2rml-test_earl.sh $TESTCASE
-
-where `r2rml-test_earl.sh` is an updated script file which only generate r2rml mappings into each specific test case directory
-
-and run the following command which will generates the r2rml mappings for each test case separately using D2RQ
-
-    ./all-r2rml-tests.sh
-
-By now, we will have directGraph-d2rq.ttl and mapped(x)-d2rq.nq in each test case directory of `rdb2rdf-tests/`
-
-Download the test harness from [here](http://mccarthy.dia.fi.upm.es/rdb2rdf/tc/th/rdb2rdf-th_bin_0.0.8.zip), unzip it and make the following changes in `ts.ttl` file
-
-    rdb2rdftest:workingDirectory "rdb2rdf-tests/" .
+    rdb2rdftest:workingDirectory "../rdb2rdf-tests/" .
 
     doap:name "D2RQ" ;
     doap:homepage <http://d2rq.org> ;
     rdb2rdftest:dbms  r2rml:HSQLDB ;
+    rdb2rdftest:implementsDirectMapping true ;
     rdb2rdftest:implementsR2RML true .
 
-Make sure that you have copied the `rdb2rdf-tests/` directory from `rdb2rdf-harness` into test harness (i.e., rdb2rdf-th_bin_0.0.8) directory.
 
-Run the following command:
+Run the following command to generate the earl reports for direct mapping and r2rml:
 
     rdb2rdf-th ts.ttl

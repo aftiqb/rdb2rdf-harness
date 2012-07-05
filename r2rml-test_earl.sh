@@ -14,17 +14,5 @@ do
     echo === $1 $IDENTIFIER ===
     EXPECTED=output/r2rml-$1-$IDENTIFIER-expected.nt
     ACTUAL=rdb2rdf-tests/$TESTDIR/$RESULT2
-#    rdfcopy rdb2rdf-tests/$TESTDIR/$RESULT TURTLE N-TRIPLE | sort > $EXPECTED
     ./run-r2rml.sh rdb2rdf-tests/$TESTDIR/create.sql rdb2rdf-tests/$TESTDIR/$MAPPING $ACTUAL
-#    if [ "$?" == "0" ]; then
-#        rdfcompare $ACTUAL $EXPECTED N-TRIPLE N-TRIPLE > /dev/null
-#        if [ "$?" == "0" ]; then
-#            echo PASS!
-#        else
-#            echo "FAIL! diff follows."
-#            sort $ACTUAL > $ACTUAL-sorted
-#            mv $ACTUAL-sorted $ACTUAL
-#            diff $EXPECTED $ACTUAL
-#        fi
-#    fi
 done
