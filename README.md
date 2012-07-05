@@ -67,7 +67,8 @@ and run the following command which will generates the r2rml mappings for each t
 
 By now, we will have directGraph-d2rq.ttl and mapped(x)-d2rq.nq in each test case directory of `rdb2rdf-tests/`
 
-Download the test harness from (here)[http://mccarthy.dia.fi.upm.es/rdb2rdf/tc/th/rdb2rdf-th_bin_0.0.8.zip], unzip it and make the following changes in `ts.ttl` file
+Download the test harness from [here](http://mccarthy.dia.fi.upm.es/rdb2rdf/tc/th/rdb2rdf-th_bin_0.0.8.zip), unzip it and make the following changes in `ts.ttl` file
+
     rdb2rdftest:workingDirectory "rdb2rdf-tests/" .
 
     doap:name "D2RQ" ;
