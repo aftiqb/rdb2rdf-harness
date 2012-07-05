@@ -79,4 +79,5 @@ Download the test harness from [here](http://mccarthy.dia.fi.upm.es/rdb2rdf/tc/t
 Make sure that you have copied the `rdb2rdf-tests/` directory from `rdb2rdf-harness` into test harness (i.e., rdb2rdf-th_bin_0.0.8) directory.
 
 Run the following command:
+
     rdb2rdf-th ts.ttl
