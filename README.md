@@ -35,3 +35,23 @@ The R2RML tester will run all tests in the `D001` directory. It currently cannot
 
     ./all-dm-tests.sh
     ./all-r2rml-tests.sh
+
+### Generating earl reports
+
+Download the test suite:
+
+    cd rdb2rdf-harness
+    hg clone https://dvcs.w3.org/hg/rdb2rdf-tests
+    
+Download the test harness from (here)[http://mccarthy.dia.fi.upm.es/rdb2rdf/tc/th/rdb2rdf-th_bin_0.0.8.zip], unzip it and make the following changes in `ts.ttl` file
+    rdb2rdftest:workingDirectory "rdb2rdf-tests/" .
+
+    doap:name "D2RQ" ;
+    doap:homepage <http://d2rq.org> ;
+    rdb2rdftest:dbms  r2rml:HSQLDB ;
+    rdb2rdftest:implementsR2RML true .
+
+Make sure that you have copied the `rdb2rdf-tests/` directory into test harness directory.
+
+Run the following command:
+    rdb2rdf-th ts.ttl
