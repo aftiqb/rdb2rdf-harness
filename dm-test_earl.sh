@@ -4,7 +4,7 @@ then
     echo "No test case '$1' found!"
     exit 1
 fi
-echo === ./dm-test.sh $1 ===
+#echo === ./dm-test.sh $1 ===
 EXPECTED=output/dm-$1-expected.nt
 ACTUAL=rdb2rdf-tests/$TESTDIR/directGraph-d2rq.ttl
 rdfcopy rdb2rdf-tests/$TESTDIR/directGraph.ttl TURTLE N-TRIPLE | sort > $EXPECTED
