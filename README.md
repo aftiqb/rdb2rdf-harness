@@ -43,6 +43,28 @@ Download the test suite:
     cd rdb2rdf-harness
     hg clone https://dvcs.w3.org/hg/rdb2rdf-tests
     
+Copy the `rdb2rdf-tests` directory into `rdb2rdf-harness` directory
+
+In `run-dm.sh`, make the following changes which will generate the direct mapping into each specific test case directory
+
+    ACTUAL=rdb2rdf-tests/$TESTDIR/directGraph-d2rq.ttl
+
+and run the following command which generates the direct mappings using D2RQ
+
+    ./all-dm-tests.sh
+
+make the following changes in `all-r2rml-tests.sh`
+
+    ./r2rml-test_earl.sh $TESTCASE
+
+where `r2rml-test_earl.sh` is an updated script file which only generate r2rml mappings into each specific test case directory
+
+and run the following command which will generates the r2rml mappings for each test case separately using D2RQ
+
+    ./all-r2rml-tests.sh
+
+By now, we will have directGraph-d2rq.ttl and mapped(x)-d2rq.nq in each test case directory of `rdb2rdf-tests/`
+
 Download the test harness from (here)[http://mccarthy.dia.fi.upm.es/rdb2rdf/tc/th/rdb2rdf-th_bin_0.0.8.zip], unzip it and make the following changes in `ts.ttl` file
     rdb2rdftest:workingDirectory "rdb2rdf-tests/" .
 
@@ -51,7 +73,7 @@ Download the test harness from (here)[http://mccarthy.dia.fi.upm.es/rdb2rdf/tc/t
     rdb2rdftest:dbms  r2rml:HSQLDB ;
     rdb2rdftest:implementsR2RML true .
 
-Make sure that you have copied the `rdb2rdf-tests/` directory into test harness directory.
+Make sure that you have copied the `rdb2rdf-tests/` directory from `rdb2rdf-harness` into test harness (i.e., rdb2rdf-th_bin_0.0.8) directory.
 
 Run the following command:
     rdb2rdf-th ts.ttl
