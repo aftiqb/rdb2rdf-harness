@@ -58,4 +58,5 @@ in `rdb2rdf-th_bin_0.0.8` directory, make the following changes in `ts.ttl` file
 
 Run the following command to generate the earl reports for direct mapping and r2rml:
 
+    cd rdb2rdf-th_bin_0.0.8
     rdb2rdf-th ts.ttl
